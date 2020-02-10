@@ -1,7 +1,11 @@
 // time variables
-var now = moment().format("dddd, MMM Do");
-var currentHour = new Date().getHours();
-$("#currentDay").html(now);
+moment().format("dddd, MMM Do");
+
+var date = new Date()
+var currentHour = date.getHours()
+
+
+$("#currentDay").html(moment().format("dddd, MMM Do"));
    
 
 // changing the css based on the hours
@@ -9,7 +13,7 @@ $("input").each(function () {
     var elementHour = $(this).attr("data-hour")
     if(currentHour === elementHour) {
         $(this).addClass("present")
-    } else if (currentHour > elementHour) {
+    } else if (currentHour < elementHour) {
         $(this).addClass("future")
     } else {
         $(this).addClass("past")
