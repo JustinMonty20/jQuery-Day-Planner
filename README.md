@@ -1,4 +1,4 @@
-![](/screenshot/dayplanner.png)
+![](./screen-shot/dayplanner.png)
 
 1. We were asked to dynamically updated the HTML and CSS of a day planner app using jQuery.
 
@@ -10,3 +10,4 @@
 
 
 https://justinmonty20.github.io/jQuery-Day-Planner/.
+
