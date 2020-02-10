@@ -7,16 +7,16 @@ $("#currentDay").html(now);
 // changing the css based on the hours
 $("input").each(function () {
     var elementHour = $(this).attr("data-time")
-    if(currentHour > elementHour) {
-        $(this).css("background-color","red")
-    } else if (currentHour < elementHour) {
-        $(this).css("background-color", "green")
+    if(currentHour === elementHour) {
+        $(this).addClass("present")
+    } else if (currentHour > elementHour) {
+        $(this).addClass("future")
     } else {
-        $(this).css("background-color", "grey")
+        $(this).addClass("past")
     }
 })
 
-
+// ask about this in the morning !!!
 $(".saveBtn").on("click", function (){
     var whichHour = $(this).sibling().attr("data-hour")
     var storedText = $(this).sibling().find("input").val()
