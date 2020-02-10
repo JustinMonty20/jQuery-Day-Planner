@@ -6,7 +6,7 @@ $("#currentDay").html(now);
 
 // changing the css based on the hours
 $("input").each(function () {
-    var elementHour = $(this).attr("data-time")
+    var elementHour = $(this).attr("data-hour")
     if(currentHour === elementHour) {
         $(this).addClass("present")
     } else if (currentHour > elementHour) {
