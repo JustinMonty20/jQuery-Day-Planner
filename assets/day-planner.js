@@ -1,29 +1,24 @@
-var now = (moment().format("dddd, MMM Do"));
-
-var saveBtn = $();
-
+// time variables
+var now = moment().format("dddd, MMM Do");
+var currentHour = new Date().getHours();
 $("#currentDay").html(now);
+   
+
+// changing the css based on the hours
+$("input").each(function () {
+    var elementHour = $(this).attr("data-time")
+    if(currentHour > elementHour) {
+        $(this).css("background-color","red")
+    } else if (currentHour < elementHour) {
+        $(this).css("background-color", "green")
+    } else {
+        $(this).css("background-color", "grey")
+    }
+})
 
 
-
-for (i = 0; i < 9; i++) {
-    var timeBlocks = $("<div class = 'time-block row'></div>");
-    var saveBtn = $("<button class = 'saveBtn'><span><i class='fas fa-save icon-large'></i></span></button>")
-    var timeDisplay = $("<div class ='hour'></div>");
-    var textArea = $("<textarea> </textarea>");
-    
-    // adding bootstrap classes to the specific elements. 
-    timeDisplay.addClass("col-md-2");
-    textArea.addClass("col-md-8");
-    saveBtn.addClass("col-md-2");
-  
-  
-    
-    $(".container").append(timeBlocks);
-    timeBlocks.prepend(saveBtn);
-    timeBlocks.prepend(textArea);
-    timeBlocks.prepend(timeDisplay);
-
-}
-
-console.log(timeBlocks)
+$(".saveBtn").on("click", function (){
+    var whichHour = $(this).sibling().attr("data-hour")
+    var storedText = $(this).sibling().find("input").val()
+    localStorage.setItem(whichHour, storedText)
+})
